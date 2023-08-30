@@ -1,0 +1,62 @@
+/* Exemplo de estilo para um cabeçalho */
+.header {
+    background-image: linear-gradient(to bottom, #ece0a9, #ffffff);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.login-form {
+    height: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+}
+
+.input-field {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+/* Exemplo de estilo para um botão */
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Exemplo de estilo para uma classe de contêiner */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#login {
+    display: flex;
+    background-color: #333;
+    border: 0px aquamarine;
+    border-radius: 1rem;
+    height: 100%;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+}
+
+.img {
+    max-width: 30%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
