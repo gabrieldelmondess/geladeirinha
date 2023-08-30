@@ -14,12 +14,12 @@
         <form action="{% url 'cadastro'%}" method="POST">{% csrf_token %}
             <img class="img" src="{% static 'images/geladeirinha-logo.png' %}" alt="Geladeirinha">
             <h1>CADASTRO GELADEIRINHA</h1>
-            <div class=" inputs">
+            <div class=" inputs"></div>
             <input class="input-field" type="text" placeholder="USERNAME..." name="username">
             <input class="input-field" type="email" placeholder="EMAIL..." name="email">
             <input class="input-field" type="password" placeholder="SENHA..." name="senha">
             <input class="button" type="submit" value="CADASTRAR">
-            </div>
+            
         </form>
     </div>
 
