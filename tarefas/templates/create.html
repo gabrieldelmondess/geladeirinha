@@ -1,4 +1,4 @@
-<!--{% load static %}-->
+
 {% load rest_framework %}
 
 <!DOCTYPE html>
@@ -6,14 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Criar uma Tarefa</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
-
 </head>
 <body>
     <h1 class="text-center">Criar uma Tarefa</h1>
 <!-- Alterar o método de requisição para POST -->
-<form action="{% url 'create_todo' %}" method="POST">
-    
+<form action="{% url 'tarefas:create_todo' %}" method="POST">
+    {% csrf_token %}
+    {% render_form serializer %} 
+    <input type="submit" value="Save">
 </form>
 
 </body>
