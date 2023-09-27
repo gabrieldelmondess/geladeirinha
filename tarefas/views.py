@@ -4,6 +4,7 @@ from .serializers import *
 from .models import *
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
+from django.contrib import messages
 
 class ListTodo(generics.ListAPIView):
     queryset = Todo.objects.all()
@@ -38,7 +39,8 @@ class CreateTodo(generics.CreateAPIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return redirect('tarefas:list-todo')  # Redirect to your to-do list view
+            messages.success(request, 'Tarefa registrada com sucesso!')
+            return render(request, self.template_name,{'serializer': serializer, 'success_message': 'Tarefa gravada com sucesso!'})
         else:
             return render(request, self.template_name, {'serializer': serializer})
 class DeleteTodo(generics.DestroyAPIView):

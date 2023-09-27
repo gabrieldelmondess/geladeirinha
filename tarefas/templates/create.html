@@ -9,12 +9,15 @@
 </head>
 <body>
     <h1 class="text-center">Criar uma Tarefa</h1>
-<!-- Alterar o método de requisição para POST -->
+    {% if success_message %}
+    <p class="text-success">{{ success_message }}</p>
+    {% endif %}
 <form action="{% url 'tarefas:create_todo' %}" method="POST">
     {% csrf_token %}
     {% render_form serializer %} 
     <input type="submit" value="Save">
 </form>
-
+<a href="{% url 'tarefas:list-todo' %}" class="btn btn-primary">Ver Lista de Tarefas</a>
+<a href="{% url 'tarefas:create_todo' %}" class="btn btn-secondary">Registrar Outra Tarefa</a>
 </body>
 </html>
