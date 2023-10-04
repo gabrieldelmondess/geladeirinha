@@ -39,13 +39,16 @@ class CreateTodo(generics.CreateAPIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            messages.success(request, 'Tarefa registrada com sucesso!')
-            return render(request, self.template_name,{'serializer': serializer, 'success_message': 'Tarefa gravada com sucesso!'})
+            return redirect('tarefas:options-html')
         else:
             return render(request, self.template_name, {'serializer': serializer})
 class DeleteTodo(generics.DestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
+
+
+def options(request):
+    return render(request, 'options.html')
 
 
 
