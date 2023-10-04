@@ -45,6 +45,9 @@ class CreateTodo(generics.CreateAPIView):
 class DeleteTodo(generics.DestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = "delete.html"
+    
 
 
 def options(request):
