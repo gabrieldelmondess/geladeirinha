@@ -11,7 +11,14 @@
     <h1 class="text-body-secondary">Lista de Tarefas</h1>
     <ul>
         {% for todo in todos %}
-        <li>{{todo.Title}}, {{todo.Completed}}, {{todo.Description}}, {{todo.Date}},</li>
+        <li>
+            {{ todo.Title }}, {{ todo.Completed }}, {{ todo.Description }}, {{ todo.Date }},
+            <form action="{% url 'tarefas:delete-todo' pk=todo.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
+        </li>
         {% endfor %}
     </ul>
+</body>
 </html>

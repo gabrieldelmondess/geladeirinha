@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'your_styles.css' %}">
     <title>Excluir</title>
 </head>
 <body>
-    <h1>Confirmar Exclusão</h1>
-    <p>Deseja excluir essa tarefa?</p>
-    <form action="POST">
-        {% csrf_token %}
-        <button type="submit">Excluir</button>
-        <a href="{% url 'tarefas:list-todo' %}">Cancelar</a>
-    </form>
+    <div class="custom-delete-page">
+        <h1 class="custom-delete-title">Confirmar Exclusão</h1>
+        <p class="custom-delete-text">Deseja excluir essa tarefa?</p>
+        <a href="{% url 'tarefas:delete-todo' pk=todo.id %}" data-method="delete" data-confirm="Deseja excluir essa tarefa?" class="custom-delete-button">Excluir</a>
+        <a class="custom-cancel-link" href="{% url 'tarefas:list-todo' %}">Cancelar</a>
+    </div>
 </body>
 </html>
