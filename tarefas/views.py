@@ -47,15 +47,20 @@ class CreateTodo(generics.CreateAPIView):
             return render(request, self.template_name, {'serializer': serializer})
 
 class DeleteTodo(View):
-    def post(self, request, pk):  # Use 'post' em vez de 'delete_todo'
-        if request.method == 'POST':
-            todo = get_object_or_404(Todo, pk=pk)
-            todo.delete()
-            return HttpResponse('Tarefa excluída com sucesso.')
-        return HttpResponse('Método não permitido.', status=405)
+    def post(self, request, pk):
+        todo = get_object_or_404(Todo, pk=pk)
+        todo.delete()
+        return redirect('tarefas:list-todo')
 
+class ConfirmDeleteTodo(View):
+    template_name = 'confirm_delete.html'
 
-
+    def get(self, request, pk):
+        todo = get_object_or_404(Todo, pk=pk)
+        context = {
+            'todo': todo,
+        }
+        return render(request, self.template_name, context)
 
 def options(request):
     return render(request, 'options.html')

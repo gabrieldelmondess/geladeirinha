@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmação de Exclusão</title>
+</head>
+<body>
+    <h1>Confirmação de Exclusão</h1>
+    <p>Tem certeza que deseja excluir esta tarefa?</p>
+    <form action="{% url 'tarefas:delete-todo' pk=todo.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="confirmed" value="true">
+        <button type="submit" class="btn btn-danger">Sim, excluir</button>
+        <a href="{% url 'tarefas:list-todo' %}" class="btn btn-primary">Cancelar</a>
+    </form>
+</body>
+</html>

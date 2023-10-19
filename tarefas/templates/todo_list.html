@@ -13,12 +13,7 @@
         {% for todo in todos %}
         <li>
             {{ todo.Title }}, {{ todo.Completed }}, {{ todo.Description }}, {{ todo.Date }},
-            <form action="{% url 'tarefas:delete-todo' pk=todo.id %}" method="post" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger">Excluir</button>
-            </form>
+            <a href="{% url 'tarefas:confirm-delete' pk=todo.id %}" class="btn btn-danger">Excluir</a>
         </li>
         {% endfor %}
     </ul>
-</body>
-</html>

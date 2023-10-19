@@ -9,5 +9,6 @@ urlpatterns = [
     path('', ListTodo.as_view(), name='list-todo'),
     path('create/', CreateTodo.as_view(), name='create_todo'),
     path('delete/<int:pk>', DeleteTodo.as_view(), name='delete-todo'),
-    path('options/', options, name='options-html')
+    path('options/', options, name='options-html'),
+    path('confirm-delete/<int:pk>', views.ConfirmDeleteTodo.as_view(), name= 'confirm-delete')
 ]

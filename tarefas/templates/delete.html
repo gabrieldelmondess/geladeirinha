@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'your_styles.css' %}">
-    <title>Excluir</title>
+    <title>Confirmação de Exclusão</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
 </head>
 <body>
-    <div class="custom-delete-page">
-        <h1 class="custom-delete-title">Confirmar Exclusão</h1>
-        <p class="custom-delete-text">Deseja excluir essa tarefa?</p>
-        <a href="{% url 'tarefas:delete-todo' pk=todo.id %}" data-method="delete" data-confirm="Deseja excluir essa tarefa?" class="custom-delete-button">Excluir</a>
-        <a class="custom-cancel-link" href="{% url 'tarefas:list-todo' %}">Cancelar</a>
-    </div>
+    <h1 class="text-body-secondary">Confirmação de Exclusão</h1>
+    <p class="text-body-secondary">Deseja excluir a tarefa: {{ todo.Title }}?</p>
+    
+    <form class="delete-form" action="{% url 'tarefas:delete-todo' pk=todo.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, Excluir</button>
+    </form>
+    
+    <a href="{% url 'tarefas:list-todo' %}" class="btn btn-secondary">Cancelar</a>
 </body>
 </html>
