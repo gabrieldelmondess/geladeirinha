@@ -9,6 +9,8 @@ from rest_framework.views import APIView
 from django.urls import reverse_lazy
 from django.views import View
 from django.http import HttpResponse
+
+
 class ListTodo(generics.ListAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
