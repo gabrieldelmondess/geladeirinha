@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 from django.urls import reverse_lazy
 from django.views import View
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 class ListTodo(generics.ListAPIView):
@@ -35,11 +36,12 @@ class CreateTodo(generics.CreateAPIView):
     serializer_class = ToDoSerializer
     renderer_classes = [TemplateHTMLRenderer]
     template_name = "create.html"
+    @login_required(login_url="/auth/login/")
 
     def get(self, request):
         serializer = self.serializer_class()
         return render(request, self.template_name, {'serializer': serializer})
-
+   
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
@@ -47,16 +49,29 @@ class CreateTodo(generics.CreateAPIView):
             return redirect('tarefas:options-html')
         else:
             return render(request, self.template_name, {'serializer': serializer})
+@login_required(login_url="/auth/login/")
+def create_todo(request):
+    if request.method == 'POST':
+        serializer = ToDoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return redirect('tarefas:options-html')
+    else:
+        serializer = ToDoSerializer()
+    return render(request, 'create.html', {'serializer': serializer})
 
 class DeleteTodo(View):
+    @login_required(login_url="/auth/login/")
     def post(self, request, pk):
         todo = get_object_or_404(Todo, pk=pk)
         todo.delete()
         return redirect('tarefas:list-todo')
 
+
 class ConfirmDeleteTodo(View):
     template_name = 'confirm_delete.html'
 
+    @login_required(login_url="/auth/login/")
     def get(self, request, pk):
         todo = get_object_or_404(Todo, pk=pk)
         context = {
@@ -64,8 +79,8 @@ class ConfirmDeleteTodo(View):
         }
         return render(request, self.template_name, context)
 
+@login_required(login_url="/auth/login/")
 def options(request):
     return render(request, 'options.html')
-
 
 

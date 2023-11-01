@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 def cadastro(request):
@@ -34,10 +34,14 @@ def logar(request):
             return HttpResponse('LOGADO!')
         else:
             return HttpResponse('EMAIL OU SENHA INVÁLIDOS!')
+
+def my_logout(request):
+    logout(request)
+    return HttpResponse('Logout Realizado.')
         
 @login_required(login_url="/auth/login/")
 def plataforma(request):
-        return HttpResponse('PLATAFORMA')
+        return render(request, 'logado.html')
 
 
 # Create your views here.
