@@ -11,7 +11,16 @@ from django.views import View
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
+def user_logged_in(view_func):
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return view_func(request, *args, **kwargs)
+        else:
+            return HttpResponse("Login não realizado")
+    return _wrapped_view   
 
+@login_required(login_url="/auth/login/")
+@user_logged_in
 class ListTodo(generics.ListAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
@@ -25,18 +34,19 @@ class ListTodo(generics.ListAPIView):
         }
         return render(request, self.template_name, contexto)
 
-
+@login_required(login_url="/auth/login/")
+@user_logged_in
 class DetailTodo(generics.RetrieveUpdateAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
 
-
+@login_required(login_url="/auth/login/")
+@user_logged_in
 class CreateTodo(generics.CreateAPIView):
     queryset = Todo.objects.all()
     serializer_class = ToDoSerializer
     renderer_classes = [TemplateHTMLRenderer]
     template_name = "create.html"
-    @login_required(login_url="/auth/login/")
 
     def get(self, request):
         serializer = self.serializer_class()
@@ -50,16 +60,7 @@ class CreateTodo(generics.CreateAPIView):
         else:
             return render(request, self.template_name, {'serializer': serializer})
 @login_required(login_url="/auth/login/")
-def create_todo(request):
-    if request.method == 'POST':
-        serializer = ToDoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return redirect('tarefas:options-html')
-    else:
-        serializer = ToDoSerializer()
-    return render(request, 'create.html', {'serializer': serializer})
-
+@user_logged_in
 class DeleteTodo(View):
     @login_required(login_url="/auth/login/")
     def post(self, request, pk):
@@ -67,7 +68,8 @@ class DeleteTodo(View):
         todo.delete()
         return redirect('tarefas:list-todo')
 
-
+@login_required(login_url="/auth/login/")
+@user_logged_in
 class ConfirmDeleteTodo(View):
     template_name = 'confirm_delete.html'
 
@@ -80,6 +82,7 @@ class ConfirmDeleteTodo(View):
         return render(request, self.template_name, context)
 
 @login_required(login_url="/auth/login/")
+@user_logged_in
 def options(request):
     return render(request, 'options.html')
 
