@@ -8,5 +8,6 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('plataforma/', views.plataforma, name='plataforma'),
     path('social/', include('allauth.socialaccount.urls')),
+    path('', views.landing_page, name = 'landing_page')
     
 ]

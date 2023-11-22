@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style/geladeirinhacss.css' %}">
+</head>
+<body>
+    
+    <div style="width: 100%; height: 100%; position: relative; background: white">
+        <img style="width: 1024px; height: 1024px; left: 0px; top: 0px; position: absolute" src="https://th.bing.com/th/id/OIG.DOAxyiqmdn5ELmhDgdOs?pid=ImgGn"/>
+        
+        <div style="width: 1185.95px; height: 332.88px; left: -53.51px; top: -0.01px; position: absolute;">
+                <svg width="1440" height="333" viewBox="0 0 1440 333" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.4039 0.0133005H1303.39C1303.39 0.0133005 1610.77 546.718 1303.39 239.103C996.008 -68.5123 165.063 484.229 13.4039 239.103C-138.255 -6.02316 13.4039 0.0133005 13.4039 0.0133005Z" fill="white"/>
+                </svg>
+
+            </div>
+        <div style="width: 94px; height: 94px; left: 32px; top: 32px; position: absolute">
+            <a href="/">
+                <div>
+            <svg width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_99_327" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="94" height="94">
+                <rect width="94" height="94" rx="15" fill="#EFE1D7"/>
+                </mask>
+                <g mask="url(#mask0_99_327)">
+                <path d="M35.7213 54.52C35.7213 57.5117 36.9097 60.3808 39.0251 62.4962C41.1405 64.6116 44.0096 65.8 47.0013 65.8C49.9929 65.8 52.862 64.6116 54.9774 62.4962C57.0928 60.3808 58.2812 57.5117 58.2812 54.52L47.0013 54.52L35.7213 54.52Z" fill="#313131"/>
+                <path d="M50.7598 58.28L50.7598 62.04C50.7598 64.1166 49.0764 65.8 46.9998 65.8V65.8C44.9232 65.8 43.2398 64.1166 43.2398 62.04L43.2398 58.28L50.7598 58.28Z" fill="#FF5454"/>
+                <circle cx="23.4996" cy="46.06" r="9.4" fill="#4A4A4A"/>
+                <circle cx="23.4996" cy="46.06" r="9.4" fill="#4A4A4A"/>
+                <circle cx="70.4996" cy="46.06" r="9.4" fill="#4A4A4A"/>
+                <circle cx="25.3797" cy="44.18" r="4.7" fill="#FBF1F1"/>
+                <circle cx="72.3797" cy="44.18" r="4.7" fill="#FBF1F1"/>
+                </g>
+                </svg>
+                
+            </div>
+            </a>
+            <div style="width: 65.80px; height: 18.80px; left: 14.10px; top: 36.66px; position: absolute">
+                <div style="width: 18.80px; height: 18.80px; left: 0px; top: 0px; position: absolute; background: #4A4A4A; border-radius: 9999px"></div>
+                <div style="width: 18.80px; height: 18.80px; left: 0px; top: 0px; position: absolute; background: #4A4A4A; border-radius: 9999px"></div>
+                <div style="width: 18.80px; height: 18.80px; left: 47px; top: 0px; position: absolute; background: #4A4A4A; border-radius: 9999px"></div>
+                <div style="width: 9.40px; height: 9.40px; left: 6.58px; top: 2.82px; position: absolute; background: #FBF1F1; border-radius: 9999px"></div>
+                <div style="width: 9.40px; height: 9.40px; left: 53.58px; top: 2.82px; position: absolute; background: #FBF1F1; border-radius: 9999px"></div>
+            </div>
+        </div>
+        <div style="width: 614px; height: 826px; left: 717px; top: 99px; position: absolute; background: linear-gradient(151deg, #485456 0%, #6B777A 100%); border-radius: 24px"></div>
+        <form action="{% url 'login'%}" method="POST">
+            {% csrf_token %}
+            <div style="left: 765px; top: 147px; position: absolute; color: white; font-size: 40px; font-family: Inter; font-weight: 400; word-wrap: break-word; font-size: 40px;
+            font-family: Archivo Black;
+            font-weight: 400;
+            word-wrap: break-word">Bem-vindo.</div>
+            <div style="left: 150px; top: 71px; position: absolute; color: black; font-size: 16px; font-family: Archivo Black; font-weight: 400; word-wrap: break-word; color: black;
+            font-size: 16px;
+            font-family: Archivo Black;
+            font-weight: 400;
+            word-wrap: break-word">Geladeirinha</div>
+            <div style="left: 765px; top: 219px; position: absolute; color: white; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: white;
+            font-size: 20px;
+            font-family: Archivo;
+            font-weight: 400;
+            word-wrap: break-word">Entre ou cadastre-se</div>
+            <div style="left: 861px; top: 781px; position: absolute; text-align: center; color: white; font-size: 16px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: white;
+            font-size: 16px;
+            font-family: Archivo;
+            font-weight: 400;
+            word-wrap: break-word">Não possui uma conta? Cadastre-se agora.</div>
+            <div style="left: 899px; top: 304px; position: absolute; color: white; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: white;
+            font-size: 24px;
+            font-family: Archivo Black;
+            font-weight: 400;
+            word-wrap: break-word">Entrar</div>
+            <div style="width: 488px; height: 62px; left: 780px; top: 385px; position: absolute; background: #D9D9D9; border-radius: 8px; border: 1px black solid"></div>
+            <div style="width: 488px; height: 62px; left: 780px; top: 481px; position: absolute; background: #D9D9D9; border-radius: 8px; border: 1px black solid"></div>
+            <div style="width: 488px; height: 62px; left: 780px; top: 614px; position: absolute; background: #D9D9D9; border: 1px black solid"></div>
+            <div style="width: 488px; height: 62px; left: 780px; top: 688px; position: absolute; background: #D9D9D9; border: 1px black solid"></div>
+            <div style="left: 810px; top: 404px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black;
+            font-size: 20px;
+            font-family: Archivo;
+            font-weight: 400;
+            word-wrap: break-word"><input type="text" name="username" placeholder="Nome, telefone ou email:" style="border-color: #D9D9D9; background-color: #D9D9D9;"></div>
+            <div style="left: 810px; top: 500px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black;
+            font-size: 20px;
+            font-family: Archivo;
+            font-weight: 400;
+            word-wrap: break-word"><input type="text" name="senha" placeholder="Senha:" style="border-color: #D9D9D9; background-color: #D9D9D9;"></div>
+            <div style="left: 995px; top: 633px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black;
+            font-size: 20px;
+            font-family: Archivo;
+            font-weight: 400;
+            word-wrap: break-word"><a href="/api/create" hreflang="x-default" style="text-decoration: none; color: #000000;">Entrar</a></div>
+            <div style="left: 927px; top: 707px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black;
+            font-size: 20px;
+            font-family: Archivo;
+            font-weight: 400;
+            word-wrap: break-word">Entrar com o Google</div>
+            <div style="left: 1008px; top: 304px; position: absolute; color: white; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: white;
+            font-size: 24px;
+            font-family: Archivo Black;
+            font-weight: 400;
+            word-wrap: break-word"><a href="/cadastro" style="text-decoration: none; color: #E6E6E6;">Cadastre-se</a></div>
+        </div>
+        </form>
+</body>
+</html>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -22,7 +22,7 @@ def cadastro(request):
 
 def logar(request):
     if request.method == "GET":
-        return render(request, 'login.html')
+        return render(request, 'gelalogin.html')
     else:
         username = request.POST.get('username')
         senha = request.POST.get('senha')
@@ -31,7 +31,7 @@ def logar(request):
         
         if user:
             login(request,user)
-            return HttpResponse('LOGADO!')
+            return redirect(reverse('api:tarefas:create_todo'))
         else:
             return HttpResponse('EMAIL OU SENHA INVÁLIDOS!')
 
@@ -39,9 +39,12 @@ def my_logout(request):
     logout(request)
     return HttpResponse('Logout Realizado.')
         
-@login_required(login_url="/auth/login/")
+
 def plataforma(request):
         return render(request, 'logado.html')
+
+def landing_page(request):
+    return render(request, 'geladeirinha.html')
 
 
 # Create your views here.
