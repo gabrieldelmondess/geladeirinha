@@ -7,7 +7,7 @@
     <title>Página após login</title>
 </head>
 <body>
-    <h1>Usuário logado</h1>
+    <h1>Usuário logado: {{ user.username }}</h1>
     <a href="{% url 'logout' %}">Sair</a>
 </body>
 </html>

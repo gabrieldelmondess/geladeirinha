@@ -41,7 +41,7 @@ def my_logout(request):
         
 
 def plataforma(request):
-        return render(request, 'logado.html')
+        return render(request, 'logado.html',{'user':request.user})
 
 def landing_page(request):
     return render(request, 'geladeirinha.html')
